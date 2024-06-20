@@ -12,7 +12,7 @@
                         <div class="card-header">
                             <h3 class="card-title mt-1 fw-bold">Category Table</h3>
                             <div class="card-tools">
-                                <a href="/category/create" class="btn btn-sm btn-primary fw-bold">Add Category</a>
+                                <a href="{{url('admin/category/create')}}" class="btn btn-sm btn-primary fw-bold">Add Category</a>
                             </div>
                         </div>
                         <!-- /.card-header -->
@@ -58,7 +58,7 @@
     <script>
         function DeleteCategory(id) {
             $.ajax({
-                url: '/category/' + id,
+                url: '/admin/category/' + id,
                 type: "Delete",
                 data: {
                     _token: '{{ csrf_token() }}'

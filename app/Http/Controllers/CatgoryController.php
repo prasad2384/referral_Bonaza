@@ -16,7 +16,7 @@ class CatgoryController extends Controller
     {
         //
         $data = Category::all();
-        return view('admin.CategoryList', compact('data'));
+        return view('admin.pages.CategoryList', compact('data'));
     }
 
     /**
@@ -25,7 +25,7 @@ class CatgoryController extends Controller
     public function create()
     {
         //
-        return view('admin.AddCategory');
+        return view('admin.pages.AddCategory');
     }
 
     /**
@@ -62,7 +62,7 @@ class CatgoryController extends Controller
     {
         //
         $data = Category::find($id);
-        return view('admin.EditCategory', compact('data'));
+        return view('admin.pages.EditCategory', compact('data'));
     }
 
     /**
@@ -83,12 +83,12 @@ class CatgoryController extends Controller
             return response()->json(['errors' => $validation->errors()]);
         }
         $user = Category::find($id);
-        $category_name= $request->get('name');
-        $data =[
-            'name'=>$category_name,
+        $category_name = $request->get('name');
+        $data = [
+            'name' => $category_name,
         ];
         $user->update($data);
-        return response()->json(['success'=>true,'message'=>'Category Updated Successfully']);
+        return response()->json(['success' => true, 'message' => 'Category Updated Successfully']);
     }
 
     /**

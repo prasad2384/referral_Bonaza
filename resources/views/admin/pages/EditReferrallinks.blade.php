@@ -7,7 +7,7 @@
     color:red;
     }
     .form-group{
-    margin-bottom:5px;
+    margin-bottom:15px;
     }
 @endsection
 @section('content')
@@ -15,14 +15,14 @@
         <div class="container-fluid">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title float-left mt-1" style="font-weight: bold; color:black">Update Referral Links</h3>
+                    <h3 class="card-title float-left mt-1">Update Referral Links</h3>
                 </div>
                 <div class="card-body">
                     <form id="Referral_form" enctype="multipart/form-data" data-id="{{ $data->id }}">
                         @csrf
                         @method('PUT')
                         @if ($data->logo)
-                            <div class="text-center mb-2">
+                            <div class="text-center mb-4">
                                 <img src="{{ asset('images/' . $data->logo) }}" width="80px" alt="User Logo">
                             </div>
                         @endif
@@ -159,8 +159,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button type="submit" style="color: black;font-weight:bold"
-                                    class="btn btn-primary btn-sm float-right mt-2">Update</button>
+                                <button type="submit" class="btn btn-primary  btn-sm float-right mt-2">Update</button>
                             </div>
                         </div>
                     </form>
@@ -291,7 +290,7 @@
                 var id = $(form).data('id');
                 $.ajax({
                     type: "Post",
-                    url: '/referral_links/' + id,
+                    url: '/admin/referral_links/' + id,
                     data: formData,
                     contentType: false,
                     processData: false,
@@ -315,7 +314,7 @@
                             }
                         });
                         setInterval(() => {
-                            window.location.href = '/referral_links';
+                            window.location.href = '/admin/referral_links';
                         }, 4000);
                     },
                     error: function(error) {

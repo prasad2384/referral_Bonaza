@@ -1,9 +1,9 @@
 @extends('admin.layout')
 @section('title')
-    Update Category
+    Add Category
 @endsection
 @section('style')
-    .errors.{
+    .errors{
     color:red;
     }
 @endsection
@@ -12,23 +12,23 @@
         <div class="container-fluid">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title float-left mt-1" style="font-weight: bold; color:black">Update Cateogry</h3>
+                    <h3 class="card-title float-left mt-1">Add Cateogry</h3>
                 </div>
                 <div class="card-body">
-                    <form id="category_form" enctype="multipart/form-data" data-id="{{ $data->id }}">
+                    <form id="category_form" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Category</label>
                                     <input type="text" name="name" id="name" class="form-control"
-                                        placeholder="Enter User" value="{{ $data->name }}">
+                                        placeholder="Enter User">
                                     <span class="text-danger fw-bold" style="font-weight: bold;" id='error_name'></span>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button type="submit" style="color: black;font-weight:bold"
-                                    class="btn btn-primary btn-sm float-right mt-2">Update</button>
+                                <button type="submit" 
+                                    class="btn btn-primary btn-sm float-right mt-2">Submit</button>
                             </div>
                         </div>
                     </form>
@@ -59,10 +59,9 @@
             submitHandler: function(form, event) {
                 $('#error_name').text('');
                 event.preventDefault();
-                var id = $(form).data('id');
                 $.ajax({
-                    type: "PATCH",
-                    url: '/category/' + id,
+                    type: "Post",
+                    url: '/admin/category',
                     data: $(form).serialize(),
                     success: function(response) {
                         console.log(response);
@@ -91,7 +90,7 @@
                                 }
                             });
                             setInterval(() => {
-                                window.location.href = '/category';
+                                window.location.href = '/admin/category';
                             }, 4000);
                         }
                     },

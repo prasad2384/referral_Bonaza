@@ -19,7 +19,7 @@ class ReferralLinkController extends Controller
         $user = User::all();
         $referral_links = Referral_links::all();
 
-        return view('admin.ReferrallinksList', compact('category', 'user', 'referral_links'));
+        return view('admin.pages.ReferrallinksList', compact('category', 'user', 'referral_links'));
     }
 
     /**
@@ -30,7 +30,7 @@ class ReferralLinkController extends Controller
         //
         $category = Category::all();
         $user = User::all();
-        return view('admin.AddREferrallinks', compact('category', 'user'));
+        return view('admin.pages.AddREferrallinks', compact('category', 'user'));
     }
 
     /**
@@ -102,7 +102,7 @@ class ReferralLinkController extends Controller
         $user = User::all();
         $category = Category::all();
         $data = Referral_links::find($id);
-        return view('admin.EditReferrallinks', compact('user', 'category', 'data'));
+        return view('admin.pages.EditReferrallinks', compact('user', 'category', 'data'));
     }
 
     /**

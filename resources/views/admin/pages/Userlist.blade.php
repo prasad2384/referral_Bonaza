@@ -13,7 +13,7 @@
                         <div class="card-header">
                             <h3 class="card-title mt-1 fw-bold">Users Table</h3>
                             <div class="card-tools">
-                                <a href="/users/create" class="btn btn-sm btn-primary fw-bold">Add User</a>
+                                <a href="{{url('admin/users/create')}}" class="btn btn-sm btn-primary fw-bold">Add User</a>
                             </div>
                         </div>
                         <!-- /.card-header -->
@@ -41,7 +41,8 @@
                                             <td>{{ $user->username }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->phone == '' ? '-' : $user->phone }}</td>
-                                            <td>{!! $user->logo == '' ? '-' : "<img src='images/$user->logo' class='' style='width:50px'>" !!}</td>
+                                            <td>{!! $user->logo == '' ? '-' : "<img src='" . asset('images/' . $user->logo) . "' class='' style='width:50px'>" !!}</td>
+
                                             <td>{{ $user->address == '' ? '-' : $user->address }}</td>
                                             <td>{{ $user->status == 1 ? 'Active' : 'Removed' }}</td>
                                             <td>{{ $user->about == '' ? '-' : $user->about }}</td>
@@ -73,7 +74,7 @@
     <script>
         function DeleteUser(id) {
             $.ajax({
-                url: '/users/' + id,
+                url: '/admin/users/' + id,
                 type: "Delete",
                 data: {
                     _token: '{{ csrf_token() }}'

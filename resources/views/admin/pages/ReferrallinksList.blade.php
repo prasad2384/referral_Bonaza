@@ -12,7 +12,7 @@
                         <div class="card-header">
                             <h3 class="card-title mt-1 fw-bold">Referral Links Table</h3>
                             <div class="card-tools">
-                                <a href="/referral_links/create" class="btn btn-sm btn-primary fw-bold">Add Referral Links</a>
+                                <a href="{{url('admin/referral_links/create')}}" class="btn btn-sm btn-primary fw-bold">Add Referral Links</a>
                             </div>
                         </div>
                         <!-- /.card-header -->
@@ -65,7 +65,8 @@
                                             </td>
                                             <td>{{ $referral->canonicalized_name == '' ? '-' : $referral->canonicalized_name }}
                                             </td>
-                                            <td>{!! $referral->logo == '' ? '-' : "<img src='images/$referral->logo' class='' style='width:50px'>" !!}</td>
+                                            <td>{!! $referral->logo == '' ? '-' : "<img src='".asset('images/'.$referral->logo)."' class='' style='width:50px'>" !!}</td>
+                                             
                                             <td>{{ $referral->promo_terms }}</td>
                                             <td>{{ $referral->promo_terms_url }}</td>
                                             <td>{{ $referral->promo_expiration_date }}</td>
@@ -103,7 +104,7 @@
     <script>
         function DeleteReferralLink(id) {
             $.ajax({
-                url: '/referral_links/' + id,
+                url: '/admin/referral_links/' + id,
                 type: "Delete",
                 data: {
                     _token: '{{ csrf_token() }}'

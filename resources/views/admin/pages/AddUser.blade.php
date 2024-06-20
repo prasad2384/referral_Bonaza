@@ -1,13 +1,13 @@
 @extends('admin.layout')
 @section('title')
-    Edit User
+    Add User
 @endsection
 @section('style')
     .errors{
     color:red;
     }
     .form-group{
-    margin-bottom:5px;
+    margin-bottom:15px;
     }
 @endsection
 @section('content')
@@ -16,23 +16,17 @@
         <div class="container-fluid">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title float-left mt-1" style="font-weight: bold; color:black">Update User</h3>
+                    <h3 class="card-title float-left mt-1">Add User</h3>
                 </div>
                 <div class="card-body">
-                    <form id="submit_form" enctype="multipart/form-data" data-id="{{ $data->id }}">
+                    <form id="submit_form" enctype="multipart/form-data">
                         @csrf
-                        @method('PUT')
-                        @if ($data->logo)
-                            <div class="text-center mb-2">
-                                <img src="{{ asset('images/' . $data->logo) }}" width="80px" alt="User Logo">
-                            </div>
-                        @endif
                         <div class="row">
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>First Name</label>
                                     <input type="text" name="firstname" id="firstname" class="form-control"
-                                        placeholder="Enter First Name" value="{{ $data->firstname }}">
+                                        placeholder="Enter First Name">
                                     <span style="color:red" id=""></span>
                                 </div>
                             </div>
@@ -40,14 +34,14 @@
                                 <div class="form-group">
                                     <label>Last Name</label>
                                     <input type="text" name="lastname" id="lastname" class="form-control"
-                                        placeholder="Enter Last Name" value="{{ $data->lastname }}">
+                                        placeholder="Enter Last Name">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="email" name="email" id="email" class="form-control"
-                                        placeholder="Enter Email" value="{{ $data->email }}">
+                                        placeholder="Enter Email">
                                     <span style="color:red" id="error_email"></span>
                                 </div>
                             </div>
@@ -55,14 +49,14 @@
                                 <div class="form-group">
                                     <label>Phone No</label>
                                     <input type="number" name="phone" id="phone" class="form-control"
-                                        placeholder="Enter Phone No" value="{{ $data->phone }}">
+                                        placeholder="Enter Phone No">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>User Name</label>
                                     <input type="text" name="username" id="username" class="form-control"
-                                        placeholder="Enter User Name" value="{{ $data->username }}">
+                                        placeholder="Enter User Name">
                                     <span style="color:red" id="error_username"></span>
                                 </div>
                             </div>
@@ -75,26 +69,31 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" name="password" id="password" class="form-control"
+                                        placeholder="Enter Password">
+                                </div>
+                            </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-group">
                                     <label>Status</label>
                                     <select name="status" id="status" class="form-control" id="">
                                         <option value="">---------Select Status------</option>
-                                        <option value="1" {{ $data->status == 1 ? 'selected' : '' }}>Active</option>
-                                        <option value="0" {{ $data->status == 0 ? 'selected' : '' }}>Removed</option>
+                                        <option value="1">Active</option>
+                                        <option value="0">Removed</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-8 col-sm-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">About</label>
-                                    <textarea name="about" class="form-control" id="about" cols="30" rows="1">{{ $data->about }}</textarea>
+                                    <textarea name="about" class="form-control" id="about" cols="30" rows="1"></textarea>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button type="submit" style="color: black;font-weight:bold"
-                                    class="btn btn-primary btn-sm float-right mt-2">Update</button>
+                                <button type="submit" class="btn btn-primary btn-sm float-right mt-2">Submit</button>
                             </div>
                         </div>
 
@@ -146,6 +145,9 @@
                         required: true,
                         email: true
                     },
+                    password: {
+                        required: true
+                    },
                     phone: {
                         required: false,
                         minlength: 10,
@@ -176,13 +178,15 @@
                         required: "Please enter your phone number",
                         minlength: "Please Enter valid phone number"
                     },
+                    password: {
+                        required: "Please enter your password"
+                    },
                     username: {
                         required: "Please enter your username",
                         minlength: "Username must be at least 3 characters long",
                         maxlength: "Username must be no more than 32 characters long",
                         alphanumeric: "Username can only contain letters and numbers",
                     },
-                    
                     logo: {
                         required: "Please upload file.",
                         accept: "Please upload file in these format only (jpg, jpeg, png, ico, bmp)."
@@ -191,12 +195,12 @@
                 submitHandler: function(form, event) {
                     $('#error_email').text('');
                     $('#error_username').text('');
-                    event.preventDefault();
                     var formData = new FormData(form);
-                    var id = $(form).data('id');
+                    console.log(formData);
+                    event.preventDefault();
                     $.ajax({
                         type: "Post",
-                        url: '/users/' + id,
+                        url: '/admin/users',
                         data: formData,
                         contentType: false,
                         processData: false,
@@ -231,7 +235,7 @@
                                     }
                                 });
                                 setInterval(() => {
-                                    window.location.href = '/users';
+                                    window.location.href = '/admin/users';
                                 }, 4000);
                             }
                         },
@@ -239,10 +243,17 @@
                             console.log(error);
                         }
                     })
+
                 }
             });
         } else {
             console.error('jQuery validation plugin is not loaded');
         }
+    </script>
+    <script>
+        $('#logo').on('change', function() {
+            var fileName = $(this).val().split('\\').pop();
+            $(this).next('.custom-file-label').text(fileName);
+        });
     </script>
 @endsection
