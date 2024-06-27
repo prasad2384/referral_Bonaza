@@ -34,7 +34,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($user as $user)
+                                    @forelse ($users as $user)
                                         <tr>
                                             <td>{{ $user->id }}</td>
                                             <td>{{ $user->firstname }} {{ $user->lastname }}</td>
@@ -44,7 +44,7 @@
                                             <td>{!! $user->logo == '' ? '-' : "<img src='" . asset('images/' . $user->logo) . "' class='' style='width:50px'>" !!}</td>
 
                                             <td>{{ $user->address == '' ? '-' : $user->address }}</td>
-                                            <td>{{ $user->status == 1 ? 'Active' : 'Removed' }}</td>
+                                            <td>{{ $user->status == 1 ? 'Active' : '-' }}</td>
                                             <td>{{ $user->about == '' ? '-' : $user->about }}</td>
                                             <td><button class="btn btn-sm btn-danger mx-2"
                                                     onclick="DeleteUser({{ $user->id }})">D</button>
@@ -52,9 +52,16 @@
                                                     class="btn btn-warning btn-sm ">U</a>
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    @empty
+                                    <tr>
+                                        <td>No User Found</td>
+                                    </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="px-4 mt-2">
+                            {{$users->links()}}
                         </div>
                         <!-- /.card-body -->
                     </div>

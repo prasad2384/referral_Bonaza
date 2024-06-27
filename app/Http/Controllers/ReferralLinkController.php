@@ -17,8 +17,7 @@ class ReferralLinkController extends Controller
         //
         $category = Category::all();
         $user = User::all();
-        $referral_links = Referral_links::all();
-
+        $referral_links = Referral_links::paginate(5);
         return view('admin.pages.ReferrallinksList', compact('category', 'user', 'referral_links'));
     }
 

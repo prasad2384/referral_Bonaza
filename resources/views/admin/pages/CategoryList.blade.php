@@ -26,7 +26,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($data as $category)
+                                    @forelse ($data as $category)
                                         <tr>
                                             <td>{{ $category->id }}</td>
                                             <td>{{ $category->name }}</td>
@@ -37,12 +37,20 @@
                                                     class='btn btn-warning btn-sm'>U</a>
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    @empty
+                                    <tr>
+                                        <td>No Category Found</td>
+                                    </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
                         <!-- /.card-body -->
+                          <div class="px-4">
+                        {{$data->links()}}
                     </div>
+                    </div>
+                  
                     <!-- /.card -->
                 </div>
             </div>

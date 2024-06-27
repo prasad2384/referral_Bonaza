@@ -12,7 +12,8 @@
                         <div class="card-header">
                             <h3 class="card-title mt-1 fw-bold">Referral Links Table</h3>
                             <div class="card-tools">
-                                <a href="{{url('admin/referral_links/create')}}" class="btn btn-sm btn-primary fw-bold">Add Referral Links</a>
+                                <a href="{{ url('admin/referral_links/create') }}" class="btn btn-sm btn-primary fw-bold">Add
+                                    Referral Links</a>
                             </div>
                         </div>
                         <!-- /.card-header -->
@@ -40,7 +41,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($referral_links as $referral)
+                                    @forelse ($referral_links as $referral)
                                         <tr>
                                             <td>{{ $referral->id }}</td>
                                             <td>
@@ -65,8 +66,10 @@
                                             </td>
                                             <td>{{ $referral->canonicalized_name == '' ? '-' : $referral->canonicalized_name }}
                                             </td>
-                                            <td>{!! $referral->logo == '' ? '-' : "<img src='".asset('images/'.$referral->logo)."' class='' style='width:50px'>" !!}</td>
-                                             
+                                            <td>{!! $referral->logo == ''
+                                                ? '-'
+                                                : "<img src='" . asset('images/' . $referral->logo) . "' class='' style='width:50px'>" !!}</td>
+
                                             <td>{{ $referral->promo_terms }}</td>
                                             <td>{{ $referral->promo_terms_url }}</td>
                                             <td>{{ $referral->promo_expiration_date }}</td>
@@ -83,11 +86,16 @@
                                                     href="{{ route('referral_links.edit', $referral->id) }}">U</a>
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    @empty
+                                        <tr class="text-center">
+                                            <td  colspan="12" class="text-center">Referral Link Not Found</td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
                         <!-- /.card-body -->
+                        <div>{{ $referral_links->links() }}</div>
                     </div>
                     <!-- /.card -->
                 </div>

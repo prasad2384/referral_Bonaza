@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2024 at 03:01 PM
+-- Generation Time: Jun 27, 2024 at 11:36 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -63,7 +63,12 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Bank', '2024-06-20 07:27:52', '2024-06-20 07:27:52');
+(1, 'Bank', '2024-06-20 07:27:52', '2024-06-20 07:27:52'),
+(2, 'Credit Cards', '2024-06-27 03:50:00', '2024-06-27 03:50:00'),
+(3, 'Mutual Funds', '2024-06-27 03:50:16', '2024-06-27 03:50:16'),
+(4, 'Adani shares', '2024-06-27 03:50:38', '2024-06-27 03:50:38'),
+(5, 'Ratan tata', '2024-06-27 03:50:53', '2024-06-27 03:50:53'),
+(6, 'Employee', '2024-06-27 03:51:10', '2024-06-27 03:51:10');
 
 -- --------------------------------------------------------
 
@@ -243,9 +248,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('3g6eTUSFCTS1PMEnGQkC2DIAlyGsnVggcf82x0Bk', 5, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo1OntzOjY6ImxvY2FsZSI7TjtzOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjY6Il90b2tlbiI7czo0MDoibmcyTzNkRzN2dFZZc1pQN25tZlA2bGxVcHVscmpjWTBwNnA5Z3VYNSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9yZWdpc3RlciI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjU7fQ==', 1718885227),
-('bTgwQ7IM3W2TWOyKIfnKwGqlmIzkqjctUH0zvGHm', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo2OntzOjY6ImxvY2FsZSI7TjtzOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjY6Il90b2tlbiI7czo0MDoiY3RWZWFEQTJiZ3BlZHNKRmRNRFpVZ2x5VUhWcXlQRHpIRWFEMmtDcCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hZG1pbi9kYXNoYm9hcmQiO31zOjM6InVybCI7YTowOnt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1718888380),
-('pD6802qu4EzczH9hszS7eQ96DTCA8ELq0wEsFwQ5', 6, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiSGVIakE4ZTFLR3VoejU0RmtuUnFHWDBYRzZiUTUxTnQ2bjVkT25weiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9yZWdpc3RlciI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjY7fQ==', 1718885281);
+('1B4zXDe3sQCuOQ67QOwyAnGLtyzEo55wS3qddWfF', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoic2UxaTdGZU1MZmcwUkJsRUVQU083S3BlSHZRam1YTEZnYjY0alVHOCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hZG1pbi91c2VycyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6MzoidXJsIjthOjE6e3M6ODoiaW50ZW5kZWQiO3M6Mzc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hZG1pbi9kYXNoYm9hcmQiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1719480733);
 
 -- --------------------------------------------------------
 
@@ -278,7 +281,11 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `email`, `email_verified_at`, `password`, `usertype`, `address`, `phone`, `logo`, `status`, `about`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, NULL, 'Admin', 'Admin', 'admin@gmail.com', NULL, '$2y$12$82hezuFhhklqzcFXAOk51uH0WXkLagaSOl7dhHa.tdhsDR8j0IDyq', 'admin', NULL, NULL, NULL, NULL, NULL, NULL, '2024-06-20 07:05:34', '2024-06-20 07:05:34'),
-(2, NULL, 'Prasad', 'Rodage', 'prodage984@gmail.com', NULL, '$2y$12$Uya1eroMZ9ujwLE0Q6.9u.cmDj9.UrGT4ScYnypOa5uYUBGfMxQKy', 'user', NULL, NULL, NULL, NULL, NULL, NULL, '2024-06-20 07:14:45', '2024-06-20 07:14:45');
+(2, NULL, 'Prasad', 'Rodage', 'prodage984@gmail.com', NULL, '$2y$12$Uya1eroMZ9ujwLE0Q6.9u.cmDj9.UrGT4ScYnypOa5uYUBGfMxQKy', 'user', NULL, NULL, NULL, NULL, NULL, NULL, '2024-06-20 07:14:45', '2024-06-20 07:14:45'),
+(3, NULL, 'Suraj', 'Namaji', 'suraj@gmail.com', NULL, '$2y$12$dEOxMMV2NLreNKk7TZQxeeiOxMEH76qBHCpPUPczQl7TY4Nt5Pndy', 'user', NULL, NULL, NULL, NULL, NULL, NULL, '2024-06-20 07:46:23', '2024-06-20 07:46:23'),
+(4, 'xyz', 'xyz', 'xyz', 'xyz@gmail.com', NULL, '$2y$12$zvArC5FG4D6.eeR.VzeYOepB3kdR/cJxEGF78iX7EMmP14GxYSQX2', 'user', NULL, '8855921085', NULL, '1', NULL, NULL, '2024-06-27 03:43:20', '2024-06-27 03:43:20'),
+(5, 'pqr', 'pqr', 'pqr', 'pqr@gmail.com', NULL, '$2y$12$uJ7jclwSKVK7E6u7SRbP3.eDzGQR8YIFEoEyla0c3up0gdMa1GHgy', 'user', NULL, NULL, NULL, '1', NULL, NULL, '2024-06-27 03:45:59', '2024-06-27 03:45:59'),
+(6, 'pranav', 'pranav', 'mukharji', 'pranavmukharji@gmail.com', NULL, '$2y$12$noeMmraVQ9j8Iy/ibSTjquVBpbWbctUUiWY940q4lheJCfMNg/3RC', 'user', NULL, '8855921085', NULL, '1', NULL, NULL, '2024-06-27 03:48:21', '2024-06-27 03:48:21');
 
 --
 -- Indexes for dumped tables
@@ -376,7 +383,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `click_activities`
@@ -418,7 +425,7 @@ ALTER TABLE `referral_websites`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
