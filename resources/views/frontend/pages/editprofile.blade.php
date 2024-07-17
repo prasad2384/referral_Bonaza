@@ -1,109 +1,86 @@
-@extends('admin.layout')
-@section('title')
-    Edit User
-@endsection
+@extends('frontend.layout')
+@section('title', 'Edit Profile');
 @section('style')
     .errors{
+    font-weight:bold;
     color:red;
-    }
-    .form-group{
-    margin-bottom:15px;
     }
 @endsection
 @section('content')
-    <!-- Main content -->
-    <section class="content mt-3">
-        <div class="container-fluid">
-            <div class="card card-primary">
-                <div class="card-header">
-                    <h3 class="card-title float-left mt-1">Update User</h3>
+    <div class="container mt-5 pt-5 ">
+        <form id="submit_form" enctype="multipart/form-data" data-id="{{ $data->id }}">
+            @csrf
+            @method('POST')
+            <div class="row p-5">
+                @if ($data->logo)
+                    <div class=" text-center mb-4">
+                        <label class="fw-bold d-block">Profile Image</label>
+                        <img src="{{ asset('images/' . $data->logo) }}" width="80px" alt="User Logo">
+                    </div>
+                @endif
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="" class="fw-bold mb-2">First Name</label>
+                        <input type="text" name="firstname" value="{{ $data->firstname }}" class="form-control"
+                            id="">
+                    </div>
                 </div>
-                <div class="card-body">
-                    <form id="submit_form" enctype="multipart/form-data" data-id="{{ $data->id }}">
-                        @csrf
-                        @method('PUT')
-                        @if ($data->logo)
-                            <div class="text-center mb-4">
-                                <img src="{{ asset('images/' . $data->logo) }}" width="80px" alt="User Logo">
-                            </div>
-                        @endif
-                        <div class="row">
-                            <div class="col-md-4 col-sm-6">
-                                <div class="form-group">
-                                    <label>First Name</label>
-                                    <input type="text" name="firstname" id="firstname" class="form-control"
-                                        placeholder="Enter First Name" value="{{ $data->firstname }}">
-                                    <span style="color:red" id=""></span>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <div class="form-group">
-                                    <label>Last Name</label>
-                                    <input type="text" name="lastname" id="lastname" class="form-control"
-                                        placeholder="Enter Last Name" value="{{ $data->lastname }}">
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="email" name="email" id="email" class="form-control"
-                                        placeholder="Enter Email" value="{{ $data->email }}">
-                                    <span style="color:red" id="error_email"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <div class="form-group">
-                                    <label>Phone No</label>
-                                    <input type="number" name="phone" id="phone" class="form-control"
-                                        placeholder="Enter Phone No" value="{{ $data->phone }}">
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <div class="form-group">
-                                    <label>User Name</label>
-                                    <input type="text" name="username" id="username" class="form-control"
-                                        placeholder="Enter User Name" value="{{ $data->username }}">
-                                    <span style="color:red" id="error_username"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <div class="form-group">
-                                    <label for="exampleInputFile">Upload pic</label>
-                                    <div class="custom-file">
-                                        <input type="file" class="form-control p-1" name="logo"
-                                            class="custom-file-input" id="logo">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 col-sm-6">
-                                <div class="form-group">
-                                    <label>Status</label>
-                                    <select name="status" id="status" class="form-control" id="">
-                                        <option value="">---------Select Status------</option>
-                                        <option value="1" {{ $data->status == 1 ? 'selected' : '' }}>Active</option>
-                                        <option value="0" {{ $data->status == 0 ? 'selected' : '' }}>Removed</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-8 col-sm-6">
-                                <div class="form-group">
-                                    <label for="">About</label>
-                                    <textarea name="about" class="form-control" id="about" cols="30" rows="1">{{ $data->about }}</textarea>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-primary btn-sm float-right mt-2">Update</button>
-                            </div>
-                        </div>
-
-                    </form>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="" class="fw-bold mb-2">Last Name</label>
+                        <input type="text" name="lastname" value="{{ $data->lastname }}" class="form-control"
+                            id="">
+                    </div>
                 </div>
-            </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="" class="fw-bold mb-2">User Name</label>
+                        <input type="text" name="username" value="{{ $data->username }}" class="form-control"
+                            id="">
+                        <span style="font-weight:bold; color:red" id="error_username"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="" class="fw-bold mb-2">Email</label>
+                        <input type="email" name="email" value="{{ $data->email }}" class="form-control"
+                            id="">
+                        <span style="font-weight:bold; color:red;" id="error_email"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="" class="fw-bold mb-2">Phone</label>
+                        <input type="text" name="phone" value="{{ $data->phone }}" class="form-control"
+                            id="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="" class="fw-bold mb-2">Upload Profile Image</label>
+                        <input type="file" name="logo" class="form-control" id="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="" class="fw-bold mb-2">About</label>
+                        <textarea name="about" class="form-control" id="" cols="30" rows="3">{{ $data->about }}</textarea>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="" class="fw-bold mb-2">Address</label>
+                        <textarea name="address" class="form-control" id="" cols="30" rows="3">{{ $data->address }}</textarea>
+                    </div>
+                </div>
+
+            </div>
+            <button class="btn btn-primary float-end mb-5">
+                Update Profile
+            </button>
+        </form>
+    </div>
 @endsection
-
 @section('scripts')
     <!-- Ensure jQuery is loaded first -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -146,7 +123,7 @@
                         email: true
                     },
                     phone: {
-                        required: false,
+                        required: true,
                         minlength: 10,
                     },
                     username: {
@@ -158,6 +135,12 @@
                     logo: {
                         required: false,
                         accept: "image/*"
+                    },
+                    about: {
+                        required: true,
+                    },
+                    address: {
+                        required: true,
                     }
                 },
                 messages: {
@@ -185,6 +168,12 @@
                     logo: {
                         required: "Please upload file.",
                         accept: "Please upload file in these format only (jpg, jpeg, png, ico, bmp)."
+                    },
+                    about: {
+                        required: "Please enter your description"
+                    },
+                    address: {
+                        required: "Please enter your address"
                     }
                 },
                 submitHandler: function(form, event) {
@@ -195,7 +184,7 @@
                     var id = $(form).data('id');
                     $.ajax({
                         type: "Post",
-                        url: '/admin/users/' + id,
+                        url: '/user/update_profile/' + id,
                         data: formData,
                         contentType: false,
                         processData: false,
@@ -230,7 +219,7 @@
                                     }
                                 });
                                 setInterval(() => {
-                                    window.location.href = '/admin/users';
+                                    window.location.href = '/user/profile_dashboard';
                                 }, 4000);
                             }
                         },

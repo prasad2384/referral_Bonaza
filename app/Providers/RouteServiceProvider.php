@@ -12,7 +12,7 @@ class RouteServiceProvider extends ServiceProvider
      * 
      */
     public const HOMEADMIN = '/admin/dashboard';
-    public const HOMEUSER = '/user/dashboard';
+    public const HOMEUSER = '/user/profile_dashboard';
     public function register(): void
     {
         //

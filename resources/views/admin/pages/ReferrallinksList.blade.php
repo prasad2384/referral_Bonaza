@@ -88,14 +88,14 @@
                                         </tr>
                                     @empty
                                         <tr class="text-center">
-                                            <td  colspan="12" class="text-center">Referral Link Not Found</td>
+                                            <td colspan="12" class="text-center">Referral Link Not Found</td>
                                         </tr>
                                     @endforelse
                                 </tbody>
                             </table>
                         </div>
                         <!-- /.card-body -->
-                        <div>{{ $referral_links->links() }}</div>
+                        <div class="px-3 pt-3">{{ $referral_links->links() }}</div>
                     </div>
                     <!-- /.card -->
                 </div>

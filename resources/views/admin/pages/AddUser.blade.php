@@ -154,7 +154,7 @@
                     },
                     username: {
                         required: true,
-                        minlength: 3,
+                        minlength: 5,
                         maxlength: 32,
                         alphanumeric: true,
                     },
@@ -183,7 +183,7 @@
                     },
                     username: {
                         required: "Please enter your username",
-                        minlength: "Username must be at least 3 characters long",
+                        minlength: "Username must be at least 5 characters long",
                         maxlength: "Username must be no more than 32 characters long",
                         alphanumeric: "Username can only contain letters and numbers",
                     },
