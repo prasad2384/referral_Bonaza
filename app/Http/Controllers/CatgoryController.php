@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Referral_links;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -98,7 +99,12 @@ class CatgoryController extends Controller
     {
         //
         $data = Category::find($id);
-        $data->delete();
-        return response()->json(['success' => true, 'message' => 'Category Deleted Successfully']);
+        $referral_links = Referral_links::where('category_id', '=', $id)->count();
+        if ($referral_links > 0) {
+            return response()->json(['success' => false, 'message' => 'Category cannot be deleted because there are referral links associated with this category.']);
+        } else {
+            $data->delete();
+            return response()->json(['success' => true, 'message' => 'Category Deleted Successfully']);
+        }
     }
 }

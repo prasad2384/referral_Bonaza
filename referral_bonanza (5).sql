@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 16, 2024 at 10:39 PM
+-- Generation Time: Jul 24, 2024 at 12:04 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -64,10 +64,8 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'Bank', '2024-06-20 07:27:52', '2024-06-20 07:27:52'),
-(2, 'Credit Cards', '2024-06-27 03:50:00', '2024-06-27 03:50:00'),
 (3, 'Mutual Funds', '2024-06-27 03:50:16', '2024-06-27 03:50:16'),
 (4, 'Adani shares', '2024-06-27 03:50:38', '2024-06-27 03:50:38'),
-(5, 'Ratan tata', '2024-06-27 03:50:53', '2024-06-27 03:50:53'),
 (6, 'Employee', '2024-06-27 03:51:10', '2024-06-27 03:51:10');
 
 -- --------------------------------------------------------
@@ -208,7 +206,6 @@ CREATE TABLE `referral_links` (
 
 INSERT INTO `referral_links` (`id`, `category_id`, `user_id`, `referral_url`, `display_name`, `canonicalized_name`, `logo`, `promo_terms`, `promo_terms_url`, `promo_expiration_date`, `expiry_date`, `status`, `expected_payout`, `referee_share_percentage`, `referral_share_percentage`, `platform_percentage`, `expected_days`, `created_at`, `updated_at`) VALUES
 (5, '1', '2', 'http://www.google.come', 'MooMoo', NULL, 'img6.jfif', '1', 'http://www.google.come', '2024-07-06', NULL, 'Pending', '1000', '200', '200', '200', '12', '2024-07-01 07:46:53', '2024-07-16 15:01:44'),
-(6, '2', '6', 'http://www.google.come', 'MOOOO', NULL, 'default_user_logo.png', 'd', 'http://www.google.come', '2024-07-03', NULL, 'Pending', '1000', '100', '100', '12', '12', '2024-07-01 07:56:22', '2024-07-16 15:04:19'),
 (7, '1', '2', 'http://www.google.come', 'Prasad', 'Prasad', 'footer.jfif', '1', 'http://www.google.com', '2024-07-16', NULL, 'Pending', '1000', '450', '12', '3', '5', '2024-07-02 02:03:31', '2024-07-02 02:03:31'),
 (8, '1', '2', 'http://www.google.come', 'Google', NULL, 'banner.png', '1', 'http://www.google.com', '2024-07-02', NULL, 'Pending', '134', '34', '34', '123', '34', '2024-07-02 02:22:00', '2024-07-02 02:22:00'),
 (9, '1', '2', 'http://www.google.come', 'Private', NULL, 'img2.png', '123', 'http://www.google.com', '2024-07-04', NULL, 'Pending', '10', '123', '45', '1', '12', '2024-07-02 02:25:05', '2024-07-02 02:25:05'),
@@ -262,8 +259,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('lrfVixR0365tQaeex6E5fs4ZQjYBy2BuDuEy7Ghz', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6ImxvY2FsZSI7TjtzOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjY6Il90b2tlbiI7czo0MDoiNW9QNmxGQmZ6ZlpZVzFSU0JnY1RMQ2dwZEtpVXdXN2NGSXBIZ3h2dCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fX0=', 1721160272),
-('qsOJ9G9Ia3mhpoUddFEzYasujq1gIysjBF1NuAUm', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo1OntzOjY6ImxvY2FsZSI7TjtzOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjY6Il90b2tlbiI7czo0MDoiRmRjZUcxdEdUbWQ4aWxCSGJBUHVacTlHMVdlZVlISTRoUTN2VTRuUiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1721162200);
+('8kQNFzQd1fT63byEGdFObnD2h8k6C53rhrbSq1dJ', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiNHpnTGVpNDM1MGM5cHVXZzluaTRNRGNnSG1Hd29oY3JGMWRnN1FoOSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hZG1pbi9jYXRlZ29yeSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6MzoidXJsIjthOjE6e3M6ODoiaW50ZW5kZWQiO3M6Mzc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hZG1pbi9kYXNoYm9hcmQiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1721815391);
 
 -- --------------------------------------------------------
 
@@ -300,7 +296,8 @@ INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `email`, `email_
 (3, NULL, 'Suraj', 'Namaji', 'suraj@gmail.com', NULL, '$2y$12$dEOxMMV2NLreNKk7TZQxeeiOxMEH76qBHCpPUPczQl7TY4Nt5Pndy', 'user', NULL, NULL, NULL, NULL, NULL, NULL, '2024-06-20 07:46:23', '2024-06-20 07:46:23'),
 (4, 'vwxyz', 'xyz', 'xyz', 'xyz@gmail.com', NULL, '$2y$12$zvArC5FG4D6.eeR.VzeYOepB3kdR/cJxEGF78iX7EMmP14GxYSQX2', 'user', NULL, '8855921085', NULL, '1', NULL, NULL, '2024-06-27 03:43:20', '2024-06-27 03:43:20'),
 (5, 'pqrsw', 'pqr', 'pqr', 'pqr@gmail.com', NULL, '$2y$12$uJ7jclwSKVK7E6u7SRbP3.eDzGQR8YIFEoEyla0c3up0gdMa1GHgy', 'user', NULL, NULL, NULL, '1', NULL, NULL, '2024-06-27 03:45:59', '2024-06-27 03:45:59'),
-(6, 'pranav', 'pranav', 'mukharji', 'pranavmukharji@gmail.com', NULL, '$2y$12$noeMmraVQ9j8Iy/ibSTjquVBpbWbctUUiWY940q4lheJCfMNg/3RC', 'user', NULL, '8855921085', NULL, '1', NULL, NULL, '2024-06-27 03:48:21', '2024-06-27 03:48:21');
+(6, 'pranav', 'pranav', 'mukharji', 'pranavmukharji@gmail.com', NULL, '$2y$12$noeMmraVQ9j8Iy/ibSTjquVBpbWbctUUiWY940q4lheJCfMNg/3RC', 'user', NULL, '8855921085', NULL, '1', NULL, NULL, '2024-06-27 03:48:21', '2024-06-27 03:48:21'),
+(7, NULL, 'Sai', 'sharma', 'saisharma@gmail.com', NULL, '$2y$12$di7rgq23V1zJPMqR4soJ6uye/eG6HOPVuX/S4V9CwMZXXAdUr9XPK', 'user', NULL, NULL, NULL, NULL, NULL, NULL, '2024-07-17 00:02:00', '2024-07-17 00:02:00');
 
 --
 -- Indexes for dumped tables
@@ -440,7 +437,7 @@ ALTER TABLE `referral_websites`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
